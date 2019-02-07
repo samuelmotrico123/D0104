@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+a{
+    color: white;
+}
+#imagem{
+    width:  60px;
+    height: 60px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5,minmax(100px,1fr));
+    grid-template-rows:repeat(8,minmax(100px,auto)) ;
+    grid-template-areas:
+     "header header header header header" 
+     "sidebar sidebar sidebar sidebar sidebar"
+     "main main main main main"
+     ". . . . ."
+     ". . . . ."
+     ". . . . ."
+     ". . . . ."
+     "footer footer footer footer footer";
+
+    
+}
+footer{
+    grid-area: footer;
+    display: flex;
+    background-color: blue;
+    color: white;
+    flex-direction: column;
+    margin: 0;
+}
+footer div{
+    display: flex;
+    flex-direction: column;
+    justify-items: space-evenly;
+    align-items: center;
+
+}
+footer div p{
+    margin: 1vw;
+}
+footer section{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2vw;
+}
+footer section a {
+    text-decoration: none;
+}
+main{
+    grid-area: main;
+    margin:  2vw;
+}
+.sidebar{
+    grid-area: sidebar;
+    background-color:lightgrey;
+    padding: 5px;
+}
+.sidebar nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.sidebar nav a{
+    color: black;
+    text-decoration: none;
+    padding: 1%;
+    margin: 2%;
+}
+
+header{
+    display: flex;
+    grid-area: header;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+    background-color: blue;
+}
+header nav a:nth-child(1)/* seleciona apenas os requeridos*/{
+ font-size: 16pt;
+}
+
+header nav a {
+    text-decoration: none;
+    font-size: 14pt;
+    padding: 10px;
+}
+.hamburguer{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 30px;
+}
+
+.traco{
+    width: 100%;
+    height: 3px;
+    margin: 1.5px 0;
+    background-color: white;
+}
+header nav {
+    display: none;
+}
+
+/* Media Query */
+@media(min-width: 768px){
+    .hamburguer{
+        display: none;
+    }
+    header nav{
+        display: flex;
+    }
+    #imagem{
+        width:  10vw;
+        height: 10vw;
+        padding: 0.75vw;
+    }
+}
+@media(min-width: 992px){
+    .grid{
+        grid-template-areas:
+     "header header header header header" 
+     "main main main . sidebar"
+     "main main main . sidebar"
+     ". . . . ."
+     ". . . . ."
+     ". . . . ."
+     ". . . . ."
+     "footer footer footer footer footer";
+    }
+    .sidebar{
+        margin: 5px;
+        margin: 2vw;
+        background-color: lightgrey;
+    }
+    .sidebar nav{
+        justify-content: center;
+        flex-direction: column;
+    }
+    .sidebar nav a {
+        padding: 3%;
+    }
+
+
+}
+@media(min-width: 1200px) {
+    /* Tudo que eu digitar será executado se tiver no min 1200 px de largura*/
+    main{
+        max-width: 1200px;
+        margin: auto;
+        
+    }
+
+   
+}
